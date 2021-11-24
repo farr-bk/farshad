@@ -1,2 +1,0 @@
-# farshad
-my side projects
