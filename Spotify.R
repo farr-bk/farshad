@@ -59,7 +59,7 @@ if(file.exists(".spotify")) {
 # Notice that most of spotifyr functions have a limit of pulling data (50). additionally, using get_label_artist function results in limited data containing a list of artist who ever released any material on the record label
 
 get_label_artists(
-  label = 'arts-&-crafts',
+  label = 'arts-&-crafts',          
   market = NULL,
   limit = 50, # Maximum limit is 50!
   offset = 0,
