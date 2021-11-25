@@ -8,3 +8,7 @@ I used the R package called [spotifyR](https://github.com/charlie86/spotifyr) in
 # Authorization
 Client_id, Client_secret and Redirect_uri: to get these variables, you need to set up a new app in the [Spotify developer dashboard](https://developer.spotify.com/dashboard/)
 redirect_uri is set to default (https://localhost:8888/callback/) as spotify recommends.
+
+```
+<browseURL(paste0('https://accounts.spotify.com/authorize?client_id=',client_id,'&response_type=code&redirect_uri=',website_uri,'/&scope=user-read-recently-played'),browser = getOption("browser"), encodeIfNeeded = FALSE)>
+```
