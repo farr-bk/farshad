@@ -100,3 +100,63 @@ Royal_Mountain <- get_playlist_audio_features(
 Royal_Mountain_CA <- filter(Royal_Mountain, track.available_markets == "CA")
 
 ```
+To apply an anlysis on the song features, I chose 4 metric: Energy, speechiness, instrumentalness, danceability and popularity as the main factor of comparison. I created a new variable called "year" and grouped the tracks accordingly:
+```
+ArtsCrafts_year <- Arts_and_crafts_CA %>%
+  mutate(year = year(track.album.release_date)) %>%
+  group_by(year)
+
+
+Royal_Mountain_year <- Royal_Mountain_CA %>%
+  mutate(year = year(track.album.release_date)) %>%
+  group_by(year)
+  
+  ```
+### To get glimpse on the average of tracks audio features through the years of 2012-2021:
+```
+aggregate(Royal_Mountain_year[, 6:37], list(Royal_Mountain_year$year), mean)
+aggregate(ArtsCrafts_year[, 6:37], list(ArtsCrafts_year$year), mean)
+
+```
+
+### Here is a visualization on relation between the tracks popularity and several metric that are mentioned before:
+```
+ggplot(data=Arts_and_crafts_CA)+geom_point(mapping=aes(y=track.popularity, x=instrumentalness))
+ggplot(data=Royal_Mountain_CA)+geom_point(mapping=aes(y=track.popularity, x=instrumentalness))  
+
+```
+![Rplot_royal_mountain_instrumentalness](https://user-images.githubusercontent.com/93812491/143511141-5aa2d17c-184d-40db-8c68-68c8cd58a04a.png)
+![Rplot_royal_mountain_instrumentalness](https://user-images.githubusercontent.com/93812491/143511243-8bffe95f-020d-4d34-959b-0e5c110b87f2.png)
+
+Royal mountain is more various in terms of instrumentalness that can interpreted as different styles of production.
+Arts and Crafts was more active through Vocal-based genres of music
+
+```
+ggplot(data=Arts_and_crafts_CA)+geom_point(mapping=aes(y=track.popularity, x=energy))
+ggplot(data=Royal_Mountain_CA)+geom_point(mapping=aes(y=track.popularity, x=energy))
+
+```
+![Rplot_artscrafts_energy](https://user-images.githubusercontent.com/93812491/143511404-96f604c6-8a50-483c-94af-14aa9a8f7c19.png)
+![Rplot_royalmountain_energy](https://user-images.githubusercontent.com/93812491/143511411-93c595bd-1dbd-4130-9d45-cb22f00ad3af.png)
+
+Royal mountain tends to be more active releasing more energetic tracks
+```
+ggplot(data=Arts_and_crafts_CA)+geom_point(mapping=aes(y=track.popularity, x=speechiness))
+ggplot(data=Royal_Mountain_CA)+geom_point(mapping=aes(y=track.popularity, x=speechiness))
+
+```
+![Rplot_artscrafts_speechiness](https://user-images.githubusercontent.com/93812491/143511433-5864a1f2-2b52-4c84-9741-751d40af22ac.png)
+![Rplot_royalmountain_speechiness](https://user-images.githubusercontent.com/93812491/143511442-5c2d6410-e368-462a-a78a-d193f32da159.png)
+
+Arts & Crafts released more vocal-based tracks that reached popularity (this also supports the first table's results)
+
+```
+ggplot(data=Arts_and_crafts_CA)+geom_point(mapping=aes(y=track.popularity, x=danceability))
+ggplot(data=Royal_Mountain_CA)+geom_point(mapping=aes(y=track.popularity, x=danceability))
+
+```
+
+Royal Mountain acted more various in terms of dancebility of the released tracks
+
+
+#### Thanks for reading, Farshad Bokaie
