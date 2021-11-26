@@ -40,7 +40,7 @@ auth_header <- httr::add_headers('Authorization'= paste('Bearer',token))
 write(user_token$refresh_token, ".spotify")
 
 ```
-## In case of timed-out or failed authorization, the token should be refreshed:
+### In case of timed-out or failed authorization, the token should be refreshed:
 ```
 if(file.exists(".spotify")) {
   print("we have file")
