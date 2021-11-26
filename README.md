@@ -74,3 +74,29 @@ get_label_artists(
 )
 
 ```
+To avoid the mentioned. I have developed a method on collecting the track, album data from the artists of a specific record label. for this purpose you need to search the query through this method. In the spotify desktop app, type: <label: "label name">. this will return any song, album that ever got released on the label. select all the songs and add them to new playlist. renamed the playlist to arts_and_crafts. By using the get_playlist_audio_features function I was able to bypass the limitation and reach the target data, that is the audio features of the songs on a playlist. Here is an analysis on audio features of any track that ever got published/distributed through the Arts & Crafts and Royal Mountain labels in Canada on Spotify:
+```
+Arts_and_Crafts <- get_playlist_audio_features(
+  'Spotify_user_id', #Spotify user id, copy from the user profile link
+  'Playlist_id', #Playlist id, copy the id character the link of the playlist
+  authorization = token # rename the access_token to token in order to use the user data funcions
+)
+
+```
+In order to clean the data, I applied the filter functions to narrow down the available markets to Canada:
+```
+Arts_and_crafts_CA <- filter(Arts_and_Crafts, track.available_markets == "CA")
+
+```
+
+Same goes with Royal Mountain record label:
+```
+Royal_Mountain <- get_playlist_audio_features(
+  'Spotify_user_id', #Spotify user id, copy from the user profile link
+  'Playlist_id', #Playlist id, copy the id character the link of the playlist
+  authorization = token # rename the access_token to token in order to use the user data funcions
+)
+
+Royal_Mountain_CA <- filter(Royal_Mountain, track.available_markets == "CA")
+
+```
