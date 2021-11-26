@@ -15,7 +15,7 @@ redirect_uri is set to default (https://localhost:8888/callback/) as spotify rec
 <browseURL(paste0('https://accounts.spotify.com/authorize?client_id=',client_id,'&response_type=code&redirect_uri=',website_uri,'/&scope=user-read-recently-played'),browser = getOption("browser"), encodeIfNeeded = FALSE)>
 
 ```
-Replaced cliend_id and website_uri with mine. Spotify redirects you to a link with the user token value embeded in:
+Replaced cliend_id and website_uri with mine. Spotify redirects you to a link with the user token value embeded in. Copy and assign it to user_code variable
 ```
 user_code <- user_code_value #type the code here
 
