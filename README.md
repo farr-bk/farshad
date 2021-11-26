@@ -62,7 +62,7 @@ if(file.exists(".spotify")) {
 }
 
 ```
-## A Case-study on two independant record labels based in Toronto, Ontario
+## a Case-study on two independant record labels based in Toronto, Ontario
 There are several pre-made functions in spotifyR for reaching the labels data. but there is a pre-defined limit in terms of rows in pulling data (50).
 ```
 get_label_artists(
