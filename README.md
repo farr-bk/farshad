@@ -1,4 +1,4 @@
-## _An analysis on Record labels data on Spotify_
+# _An analysis on Record labels data on Spotify_
 ## SUMMERY
 In this project, I utilized the interaction between spotify developer web API and R programming language in order to extract music data from spotify and apply an analysi on two Canadian record labels based in Toronto, ON. (Arts & Crafts and Royal Mountain records)
 
