@@ -1,12 +1,24 @@
-## An analysis on Record labels data on Spotify
-# SUMMERY
+## _An analysis on Record labels data on Spotify_
+## SUMMERY
 In this project, I utilized the interaction between spotify developer web API and R programming language in order to extract music data from spotify and apply an analysi on two Canadian record labels based in Toronto, ON. (Arts & Crafts and Royal Mountain records)
 
-# Tools and Programs
+## Tools and Programs
 I used the R package called [spotifyR](https://github.com/charlie86/spotifyr) in order to pull data through the spotify web api. Trying the [Client credentials](https://developer.spotify.com/documentation/general/guides/authorization/) method, I encountered access limitation to user data. That's because Certain functions in the package require the user code flow type of authorization. The user code flow takes more effort and I could't find any straight-forward instructions for that. Therefore I decided to make a guideline about how [Authorization code](https://developer.spotify.com/documentation/general/guides/authorization/code-flow/) works.
 
-# Packages that 
-# Authorization
+## R Packages that I used
+```
+library('httr')
+library('jsonlite')
+library('dplyr')
+library('tidyr')
+library('zoo')
+library('purrr')
+library('RCurl')
+library('ggplot2')
+library('tidyverse')
+
+```
+## Authorization
 Client_id, Client_secret and Redirect_uri: to get these variables, you need to set up a new app in the [Spotify developer dashboard](https://developer.spotify.com/dashboard/)
 redirect_uri is set to default (https://localhost:8888/callback/) as spotify recommends. I have used a few code lines from [Martijn van Vreeden's analysis](https://martijnvanvreeden.nl/collecting-spotify-data-with-r/). However, I had to combine this method with spotifyR functions to get more accurate results in my field of analysis.
 
@@ -62,7 +74,8 @@ if(file.exists(".spotify")) {
 }
 
 ```
-## a Case-study on two independant record labels based in Toronto, Ontario
+## _a Case-study on two independant record labels based in Toronto, Ontario_
+
 There are several pre-made functions in spotifyR for reaching the labels data. but there is a pre-defined limit in terms of rows in pulling data (50).
 ```
 get_label_artists(
